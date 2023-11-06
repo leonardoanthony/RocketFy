@@ -1,16 +1,19 @@
 import React from 'react'
 import { Container, Label } from './styles'
 
-export const Card = () => {
+export const Card = ({data}) => {
   return (
     <Container>
       <header>
-        <Label color="#7159c1" />
+        {data.labels.map(label => (
+            <Label key={label} color={label} />
+        ))}
       </header>
       <p>
-        Fazer a migração completa de servidor
+        {data.content}
       </p>
-      <img src='https://avatars.githubusercontent.com/u/67436042?v=4' />
+      {data.user && (<img src={data.user} alt='' />)}
+      {!data.user && (<img src='https://avatars.githubusercontent.com/u/67436042?v=4' alt='' />)}
 
     </Container>
   )
