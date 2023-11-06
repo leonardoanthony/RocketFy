@@ -15,8 +15,8 @@ export const List = ({data}) => {
         )}
       </header>
       <ul>
-        {data.cards.map(card => (
-          <Card key={card.index} data={card} />
+        {data.cards.map((card, index) => (
+          <Card key={card.index} index={index} data={card} />
         ))}
       </ul>
     </Container>
